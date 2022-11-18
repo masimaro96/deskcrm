@@ -1,3 +1,7 @@
 .topbar{
-  width: 50% !important;
+  /* width: 85% !important; */
+  background-color: white;
+}
+.title-header{
+  color: black;
 }
