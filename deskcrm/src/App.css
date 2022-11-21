@@ -4,4 +4,77 @@
 }
 .title-header{
   color: black;
+  margin-top: 5px !important;
+  font-weight: bold !important;
+}
+.add-icon{
+  margin-left: 25px !important;
+}
+.history-icon, .search-icon{
+  color: black !important;
+  margin-left: 25px;
+  margin-top: 10px !important;
+}
+.icon-right{
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.siderbar-open{
+  background-color: black;
+}
+
+.siderbar-open-titlename{
+  display: flex;
+  justify-content: center;
+}
+
+.siderbar-open-title{
+  color: white;
+}
+.siderbar-open-company{
+  color: blue;
+  margin-top: 7px !important;
+}
+
+.siderbar-open-icon{
+  color: white !important;
+}
+
+.list-work{
+  background-color: #343a40 !important;
+}
+
+.bt-right{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bt-viewheader-right{
+  background-color: #17a2b8 !important;
+}
+
+.title-viewheader-left{
+  color: black;
+  margin-left: 10px !important;
+}
+
+.viewbody-title-top{
+  font-weight: bold;
+}
+
+.viewbody-title{
+  color: #647279;
+  margin-bottom: 5px !important;
+}
+
+.viewbody-status{
+  background-color: #138496 !important;
+  color: white !important;
+}
+
+.viewbody-icon-right{
+  display: flex;
+  justify-content: flex-end;
 }

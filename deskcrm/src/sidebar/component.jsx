@@ -22,6 +22,19 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import PersonalVideoIcon from '@mui/icons-material/PersonalVideo';
+import Grid from '@mui/material/Grid';
+import Fab from '@mui/material/Fab';
+import Badge from '@mui/material/Badge';
+import AddIcon from '@mui/icons-material/Add';
+import SearchIcon from '@mui/icons-material/Search';
+import HistoryIcon from '@mui/icons-material/History';
+import Avatar from '@mui/material/Avatar';
+import LogoutIcon from '@mui/icons-material/Logout';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import SettingsIcon from '@mui/icons-material/Settings';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import ViewHeader from '../view-header/component';
+import ViewBody from '../view-body/component';
 
 const drawerWidth = 240;
 
@@ -120,22 +133,49 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" className='title-header'>
-            Customer Name
-          </Typography>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={6} md={4} display='flex'>
+                <Typography variant="h5" noWrap component="div" className='title-header'>
+                  Customer Name
+                </Typography>
+                <Fab size="small" color="primary" aria-label="add" className='add-icon'>
+                  <AddIcon />
+                </Fab>
+                <HistoryIcon sx={{ fontSize: 25 }} className='history-icon'/>
+                <SearchIcon sx={{ fontSize: 25 }} className='search-icon' />
+              </Grid>
+              <Grid item xs={6} md={8} fle sx={{'& > :not(style)': { m: 1.5, }, }} className='icon-right'>
+                <Badge badgeContent={2} color="error">
+                  <NotificationsNoneIcon color="action" />
+                </Badge>
+                <SettingsIcon color="action" />
+                <HelpOutlineIcon color="action" />
+                <Avatar sx={{ width: 24, height: 24 }} />
+                <LogoutIcon color="action" />
+              </Grid>
+            </Grid>
+          </Box>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-            <Typography variant="h6" noWrap component="div" align='left'>
-                Hanbiro
-            </Typography>
-            <Typography variant="h6" noWrap component="div">
-                CRM
-            </Typography>
-            <IconButton onClick={handleDrawerClose}>
-                {theme.direction === 'rtl' ? <MenuIcon /> : <MenuIcon />}
-            </IconButton>
+      <Drawer variant="permanent" open={open} PaperProps={{
+              sx: {
+                backgroundColor: "#343a40",
+                color: "white"
+              }
+            }}>
+        <DrawerHeader className='siderbar-open'>
+          <Box sx={{ flexGrow: 1 }} className='siderbar-open-titlename'>
+              <Typography variant="h5" noWrap component="div" className='siderbar-open-title'>
+                  Hanbiro
+              </Typography>
+              <Typography variant="h9" noWrap component="div" className='siderbar-open-company'>
+                  CRM
+              </Typography>
+          </Box>
+          <IconButton onClick={handleDrawerClose} className='siderbar-open-icon'>
+              {theme.direction === 'rtl' ? <MenuIcon /> : <MenuIcon />}
+          </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
@@ -169,6 +209,12 @@ export default function MiniDrawer() {
           ))}
         </List>
       </Drawer>
+      <Box component="main" sx={{ flexGrow: 1}}>
+        <DrawerHeader />
+        <ViewHeader />
+        <Divider />
+        <ViewBody />
+      </Box>
     </Box>
   );
 }
