@@ -75,6 +75,43 @@
 }
 
 .viewbody-icon-right{
+  margin-top: 5px !important;
   display: flex;
   justify-content: flex-end;
+}
+
+.name-avatar{
+  font-size: 15px !important;
+  margin-top: 5px !important;
+  margin-left: 10px !important;
+}
+
+.name-doc{
+  font-size: 15px !important;
+}
+
+.time-upload{
+  color: #6c757d;
+  font-size: 13px !important;
+}
+
+.drag-drop-file{
+  display: flex;
+  justify-content: center;
+}
+
+.upload-file{
+  color: #b4bdce;
+  margin-left: 10px !important;
+  margin-top: 5px !important;
+}
+
+.download-file{
+  color: blue;
+  font-size: 15px !important;
+  margin-left: 5px !important;
+}
+
+.name-product{
+  color: blue;
 }
