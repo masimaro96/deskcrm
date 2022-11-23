@@ -7,7 +7,8 @@ import Box from '@mui/material/Box';
 import AddIcon from '@mui/icons-material/Add';
 import Avatar from '@mui/material/Avatar';
 import { Stack } from '@mui/system';
-import { Chip, Divider, Grid } from '@mui/material';
+import { Chip, Divider } from '@mui/material';
+import CustomizedTimeline from '../timeline/component';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -55,7 +56,7 @@ export default function BasicTabs() {
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Instruction" {...a11yProps(0)} />
           <Tab label="Timeline" {...a11yProps(1)} />
-          <Tab icon={<AddIcon />} iconPosition="start" label="More" {...a11yProps(2)} />
+          <Tab icon={<AddIcon />} iconPosition="start" label="More" />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -103,28 +104,7 @@ export default function BasicTabs() {
         <Divider>
             <Chip color="secondary" label="2021-03-17" />
         </Divider>
-        <Grid container spacing={2}>
-            <Grid item xs={2}>
-                
-            </Grid>
-            <Grid item xs={10}>
-                <Box borderRadius={2} sx={{ flexGrow: 1, p: 2, border: '1px solid grey' }} display='flex'>
-                    <Grid item xs={6}>
-                        <Typography noWrap component="div" className=''>
-                            Expected Duration was updated from 1 hour to 1 day by MSR
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <Typography noWrap component="div" className=''>
-                            15:28
-                        </Typography>
-                    </Grid>
-                </Box>
-            </Grid>
-        </Grid>
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        
+        <CustomizedTimeline />
       </TabPanel>
     </Box>
   );

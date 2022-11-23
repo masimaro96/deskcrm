@@ -112,6 +112,15 @@
   margin-left: 5px !important;
 }
 
-.name-product{
+.name-product, .bt-download-timline{
   color: blue;
+}
+
+.bt-timeline{
+  background-color: #138496 !important;
+  border: 1px solid #138496 !important;
+}
+
+.bt-icon-timeline{
+  color: white !important;
 }
