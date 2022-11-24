@@ -9,6 +9,7 @@ import Avatar from '@mui/material/Avatar';
 import { Stack } from '@mui/system';
 import { Chip, Divider } from '@mui/material';
 import CustomizedTimeline from '../timeline/component';
+import CustomizedSteppers from '../stepper/component';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -60,51 +61,56 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Box borderRadius={2} sx={{ flexGrow: 1, p: 2, border: '1px solid grey' }}>
-            <Box display='flex' sx={{ flexGrow: 1}}>
-                <Stack direction="row" spacing={2}>
-                    <Typography noWrap component="div" className=''>
-                        Direction:
-                    </Typography>
-                    <Typography noWrap component="div" className=''>
-                        Outgoing
-                    </Typography>
-                </Stack>
-            </Box>
-            <Box display='flex' sx={{ flexGrow: 1, pt: 1}}>
-                <Stack direction="row" spacing={2}>
-                    <Typography noWrap component="div" className=''>
-                        From:
-                    </Typography>
-                    <Avatar sx={{ width: 30, height: 30}}/>
-                    <Typography noWrap component="div" className=''>
-                        MSM
-                    </Typography>
-                </Stack>
-            </Box>
-            <Box display='flex' sx={{ flexGrow: 1, pt: 1, pb: 3}}>
-                <Stack direction="row" spacing={2}>
-                    <Typography noWrap component="div" className=''>
-                        To:
-                    </Typography>
-                    <Avatar sx={{ width: 30, height: 30}}/>
-                    <Typography noWrap component="div" className=''>
-                        Allan Rey Palban
-                    </Typography>
-                </Stack>
-            </Box>
-            <Box borderRadius={2} sx={{ flexGrow: 1, p: 1 , border: '1px solid black' }}>
-                <Typography noWrap component="div" className=''>
-                    Content
-                </Typography>
-            </Box>
-        </Box>
+        <Stack direction="column" spacing={3}>
+        <CustomizedSteppers />
+          <Box borderRadius={2} sx={{ flexGrow: 1, p: 2, border: '1px solid grey' }}>
+              <Box display='flex' sx={{ flexGrow: 1}}>
+                  <Stack direction="row" spacing={2}>
+                      <Typography noWrap component="div" className=''>
+                          Direction:
+                      </Typography>
+                      <Typography noWrap component="div" className=''>
+                          Outgoing
+                      </Typography>
+                  </Stack>
+              </Box>
+              <Box display='flex' sx={{ flexGrow: 1, pt: 1}}>
+                  <Stack direction="row" spacing={2}>
+                      <Typography noWrap component="div" className=''>
+                          From:
+                      </Typography>
+                      <Avatar sx={{ width: 30, height: 30}}/>
+                      <Typography noWrap component="div" className=''>
+                          MSM
+                      </Typography>
+                  </Stack>
+              </Box>
+              <Box display='flex' sx={{ flexGrow: 1, pt: 1, pb: 3}}>
+                  <Stack direction="row" spacing={2}>
+                      <Typography noWrap component="div" className=''>
+                          To:
+                      </Typography>
+                      <Avatar sx={{ width: 30, height: 30}}/>
+                      <Typography noWrap component="div" className=''>
+                          Allan Rey Palban
+                      </Typography>
+                  </Stack>
+              </Box>
+              <Box borderRadius={2} sx={{ flexGrow: 1, p: 1 , border: '1px solid black' }}>
+                  <Typography noWrap component="div" className=''>
+                      Content
+                  </Typography>
+              </Box>
+          </Box>
+        </Stack>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Divider>
-            <Chip color="secondary" label="2021-03-17" />
-        </Divider>
-        <CustomizedTimeline />
+        <Stack direction="column" spacing={3}>
+          <Divider>
+              <Chip color="secondary" label="2021-03-17"/>
+          </Divider>
+          <CustomizedTimeline />
+        </Stack>
       </TabPanel>
     </Box>
   );

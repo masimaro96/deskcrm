@@ -10,6 +10,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Stack } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CustomizedDialogs from '../addnew/component';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -53,9 +54,7 @@ export default function ViewHeader() {
                     <Button variant="contained" endIcon={<ExpandMoreIcon />} className='bt-viewheader-right'>
                         Move
                     </Button>
-                    <Button variant="contained" startIcon={<AddIcon />}>
-                        New
-                    </Button>
+                    <CustomizedDialogs />
                 </Stack>
                 </Grid>
             </Grid>

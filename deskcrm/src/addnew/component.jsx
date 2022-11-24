@@ -10,6 +10,12 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import AddIcon from '@mui/icons-material/Add';
+import RowRadioButtonsGroup from '../radio-button/component';
+import { Stack } from '@mui/system';
+import BoxText from '../box/component';
+import MultipleSelectPlaceholder from '../selectbox/component';
+import MultipleSelectChip from '../selectbox-icon/component';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -61,7 +67,7 @@ export default function CustomizedDialogs() {
 
   return (
     <div>
-        <Button variant="contained" startIcon={<AddIcon />}>
+        <Button variant="contained" startIcon={<AddIcon />} onClick={handleClickOpen}>
             New
         </Button>
         <BootstrapDialog
@@ -73,18 +79,15 @@ export default function CustomizedDialogs() {
             Create Fax
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
-            Fax Direction
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-            magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-            ullamcorper nulla non metus auctor fringilla.
-          </Typography>
+          <Stack direction="column" spacing={2}>
+            {RowRadioButtonsGroup("Fax Direction","Incoming","Outgoing")}
+            {RowRadioButtonsGroup("Fax Schedule","Send Now","Schedule")}  
+            {BoxText("Subject","")}
+            {MultipleSelectPlaceholder("Priority","Select...")}
+            {MultipleSelectPlaceholder("Purpose","Select...")}
+            <MultipleSelectChip />
+            {BoxText("Description","")}
+          </Stack>
         </DialogContent>
         <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
