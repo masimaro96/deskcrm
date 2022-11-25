@@ -16,6 +16,7 @@ import { Stack } from '@mui/system';
 import BoxText from '../box/component';
 import MultipleSelectPlaceholder from '../selectbox/component';
 import MultipleSelectChip from '../selectbox-icon/component';
+import UploadFileIcon from '@mui/icons-material/UploadFile';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -66,9 +67,9 @@ export default function CustomizedDialogs() {
   };
 
   return (
-    <div>
+    <div sx={{ width: 800 }}>
         <Button variant="contained" startIcon={<AddIcon />} onClick={handleClickOpen}>
-            New
+            
         </Button>
         <BootstrapDialog
             onClose={handleClose}
@@ -85,13 +86,16 @@ export default function CustomizedDialogs() {
             {BoxText("Subject","")}
             {MultipleSelectPlaceholder("Priority","Select...")}
             {MultipleSelectPlaceholder("Purpose","Select...")}
-            <MultipleSelectChip />
+            <Typography>Fax Image</Typography>
+            <IconButton><UploadFileIcon sx={{ fontSize: 40 }}  /></IconButton>
+            {MultipleSelectChip("From")}
+            {MultipleSelectChip("To")}
             {BoxText("Description","")}
           </Stack>
         </DialogContent>
         <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button autoFocus onClick={handleClose} endIcon={<KeyboardArrowUpIcon />}>
+            <Button variant="outlined" onClick={handleClose}>Cancel</Button>
+            <Button variant="contained" color="success" autoFocus onClick={handleClose} endIcon={<KeyboardArrowUpIcon />}>
                 Save
             </Button>
         </DialogActions>

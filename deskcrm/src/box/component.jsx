@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
 import TextField from '@mui/material/TextField';
 
-export default function BoxText($text1) {
+export default function BoxText($text1,$icon) {
     return (
         <Box>
             <Typography>{$text1}</Typography>
@@ -11,6 +11,7 @@ export default function BoxText($text1) {
                 sx={{
                     width: 500,
                     maxWidth: '100%',
+                    ml: 1
                 }}
                 >
                 <TextField fullWidth label="" id="fullWidth" />

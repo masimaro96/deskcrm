@@ -51,7 +51,7 @@ export default function MultipleSelectPlaceholder($text1,$text2) {
   return (
     <div>
         <Typography>{$text1}</Typography>
-        <FormControl sx={{ m: 1, width: 300, mt: 2 }}>
+        <FormControl sx={{ m: 1, width: 500, mt: 2 }}>
             <Select
             multiple
             displayEmpty
