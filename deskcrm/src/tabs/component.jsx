@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import AddIcon from '@mui/icons-material/Add';
 import Avatar from '@mui/material/Avatar';
 import { Stack } from '@mui/system';
-import { Chip, Divider } from '@mui/material';
+import { Chip, Divider, MenuItem, Popover } from '@mui/material';
 import CustomizedTimeline from '../timeline/component';
 import CustomizedSteppers from '../stepper/component';
 
@@ -50,6 +50,22 @@ export default function BasicTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleMenuItemClick = (menuItem) => {
+    setValue(menuItem);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -57,7 +73,7 @@ export default function BasicTabs() {
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Instruction" {...a11yProps(0)} />
           <Tab label="Timeline" {...a11yProps(1)} />
-          <Tab icon={<AddIcon />} iconPosition="start" label="More" />
+          <Tab aria-describedby={id} onClick={handleClick} icon={<AddIcon />} iconPosition="start" label="More" />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -112,6 +128,35 @@ export default function BasicTabs() {
           <CustomizedTimeline />
         </Stack>
       </TabPanel>
+      <TabPanel value={value} index={2}>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+        >
+          <MenuList>
+            <MenuItem onClick={handleMenuItemClick} sx={{ p: 2 }}>Note</MenuItem>
+            <MenuItem sx={{ p: 2 }}>Team Channel</MenuItem>
+          </MenuList>
+          
+          {/* <Tabs value={value} onChange={handleChange} orientation="vertical">
+            <Tab label="Item Five" {...a11yProps(4)} />
+            <Tab label="Item Six" {...a11yProps(5)} />
+          </Tabs>
+          <TabPanel value={value} index={4}>
+            Item Five
+          </TabPanel>
+          <TabPanel value={value} index={5}>
+            Item Six
+          </TabPanel> */}
+        </Popover>
+      </TabPanel>
+      
     </Box>
   );
 }

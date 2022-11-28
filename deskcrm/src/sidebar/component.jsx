@@ -139,9 +139,6 @@ export default function MiniDrawer() {
                 <Typography variant="h5" noWrap component="div" className='title-header'>
                   Customer Name
                 </Typography>
-                <Fab size="small" color="primary" aria-label="add" className='add-icon'>
-                  <AddIcon />
-                </Fab>
                 <HistoryIcon sx={{ fontSize: 25 }} className='history-icon'/>
                 <SearchIcon sx={{ fontSize: 25 }} className='search-icon' />
               </Grid>

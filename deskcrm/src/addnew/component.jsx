@@ -69,7 +69,7 @@ export default function CustomizedDialogs() {
   return (
     <div sx={{ width: 800 }}>
         <Button variant="contained" startIcon={<AddIcon />} onClick={handleClickOpen}>
-            
+            New
         </Button>
         <BootstrapDialog
             onClose={handleClose}
