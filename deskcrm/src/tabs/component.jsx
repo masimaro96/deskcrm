@@ -7,10 +7,11 @@ import Box from '@mui/material/Box';
 import AddIcon from '@mui/icons-material/Add';
 import Avatar from '@mui/material/Avatar';
 import { Stack } from '@mui/system';
-import { Chip, Divider, MenuItem, Popover } from '@mui/material';
+import { Chip, Divider, MenuItem, MenuList, Popover } from '@mui/material';
 import CustomizedTimeline from '../timeline/component';
 import CustomizedSteppers from '../stepper/component';
-
+import Note from '../more-tab/note-component';
+import { grey } from '@mui/material/colors';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -73,7 +74,9 @@ export default function BasicTabs() {
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Instruction" {...a11yProps(0)} />
           <Tab label="Timeline" {...a11yProps(1)} />
-          <Tab aria-describedby={id} onClick={handleClick} icon={<AddIcon />} iconPosition="start" label="More" />
+          <Tab aria-describedby={id} onClick={handleClick} icon={<AddIcon />} iconPosition="start" label="More" {...a11yProps(2)} />
+          <Tab label="Note" {...a11yProps(3)} />
+          <Tab label="Team Channel" {...a11yProps(4)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
@@ -140,7 +143,7 @@ export default function BasicTabs() {
           }}
         >
           <MenuList>
-            <MenuItem onClick={handleMenuItemClick} sx={{ p: 2 }}>Note</MenuItem>
+            <MenuItem onClick={() => this.handleMenuItemClick("Three")}> Tr</MenuItem>
             <MenuItem sx={{ p: 2 }}>Team Channel</MenuItem>
           </MenuList>
           
@@ -156,7 +159,17 @@ export default function BasicTabs() {
           </TabPanel> */}
         </Popover>
       </TabPanel>
-      
+      <TabPanel value={value} index={3}>
+        <Box borderRadius={2} sx={{width: '15%', p: 1, border: '1px solid grey', textAlign:'center', background: grey[400] }}>
+          <Typography noWrap component="div" className=''>
+            2021-03-17
+          </Typography>
+        </Box>
+        <Note />
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        
+      </TabPanel>
     </Box>
   );
 }
